@@ -1,0 +1,155 @@
+{
+  "entities": {
+    "SchoolConfig": {
+      "title": "SchoolConfig",
+      "description": "School settings, profile info, and configuration",
+      "type": "object",
+      "properties": {
+        "schoolName": { "type": "string" },
+        "slogan": { "type": "string" },
+        "emisNumber": { "type": "string" },
+        "examCentreNumber": { "type": "string" },
+        "district": { "type": "string" },
+        "province": { "type": "string" },
+        "academicYear": { "type": "number" },
+        "currentTerm": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      }
+    },
+    "Student": {
+      "title": "Student",
+      "description": "Pupil / Student record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "admissionNumber": { "type": "string" },
+        "name": { "type": "string" },
+        "gender": { "type": "string" },
+        "dateOfBirth": { "type": "string" },
+        "classId": { "type": "number" },
+        "className": { "type": "string" },
+        "parentName": { "type": "string" },
+        "parentContact": { "type": "string" },
+        "pathway": { "type": "string" }
+      },
+      "required": ["id", "name", "classId"]
+    },
+    "Teacher": {
+      "title": "Teacher",
+      "description": "Educator profile and class assignments",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "tscNumber": { "type": "string" },
+        "name": { "type": "string" },
+        "gender": { "type": "string" },
+        "qualification": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "role": { "type": "string" }
+      },
+      "required": ["id", "name"]
+    },
+    "ClassStream": {
+      "title": "ClassStream",
+      "description": "Academic stream/grade",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "name": { "type": "string" },
+        "level": { "type": "string" },
+        "section": { "type": "string" },
+        "teacherId": { "type": "number" },
+        "capacity": { "type": "number" }
+      },
+      "required": ["id", "name"]
+    },
+    "FeeItem": {
+      "title": "FeeItem",
+      "description": "Pupil fee invoices and balances",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "studentId": { "type": "number" },
+        "description": { "type": "string" },
+        "term": { "type": "string" },
+        "year": { "type": "number" },
+        "amountZMW": { "type": "number" },
+        "paidAmountZMW": { "type": "number" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "studentId", "amountZMW"]
+    },
+    "SchoolEvent": {
+      "title": "SchoolEvent",
+      "description": "Academic calendar events and terms",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "startDate": { "type": "string" },
+        "endDate": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "required": ["id", "title", "startDate"]
+    },
+    "UserMessage": {
+      "title": "UserMessage",
+      "description": "SMS and Broadcast communication messages",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "senderName": { "type": "string" },
+        "senderRole": { "type": "string" },
+        "recipientType": { "type": "string" },
+        "recipientName": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "title", "content"]
+    }
+  },
+  "firestore": {
+    "/schoolConfig/{configId}": {
+      "schema": { "$ref": "#/entities/SchoolConfig" },
+      "description": "School operational settings and profile"
+    },
+    "/students/{studentDocId}": {
+      "schema": { "$ref": "#/entities/Student" },
+      "description": "Pupil registrations and pathways"
+    },
+    "/teachers/{teacherDocId}": {
+      "schema": { "$ref": "#/entities/Teacher" },
+      "description": "Teachers, staff members, and class supervisors"
+    },
+    "/classes/{classDocId}": {
+      "schema": { "$ref": "#/entities/ClassStream" },
+      "description": "Class streams and grades"
+    },
+    "/fees/{feeDocId}": {
+      "schema": { "$ref": "#/entities/FeeItem" },
+      "description": "Tuition and PTA fee invoicing"
+    },
+    "/events/{eventDocId}": {
+      "schema": { "$ref": "#/entities/SchoolEvent" },
+      "description": "Academic calendar and termly events"
+    },
+    "/messages/{messageDocId}": {
+      "schema": { "$ref": "#/entities/UserMessage" },
+      "description": "School SMS and communication broadcasts"
+    },
+    "/gradebooks/{gradebookDocId}": {
+      "schema": "object",
+      "description": "Termly assessments and exam results"
+    },
+    "/attendance/{attendanceDocId}": {
+      "schema": "object",
+      "description": "Daily student and staff attendance rolls"
+    },
+    "/syncData/{datasetDocId}": {
+      "schema": "object",
+      "description": "Comprehensive school system state snapshot"
+    }
+  }
+}

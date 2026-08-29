@@ -1,0 +1,159 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // School Profile & Configuration
+    match /schoolConfig/{configId} {
+      allow read, write: if true;
+    }
+
+    // Students Collection
+    match /students/{studentId} {
+      allow read, write: if true;
+    }
+
+    // Teachers & Faculty
+    match /teachers/{teacherId} {
+      allow read, write: if true;
+    }
+
+    // Non-Teaching Staff
+    match /staff/{staffId} {
+      allow read, write: if true;
+    }
+
+    // Classes & Streams
+    match /classes/{classId} {
+      allow read, write: if true;
+    }
+
+    // Academic Batches
+    match /batches/{batchId} {
+      allow read, write: if true;
+    }
+
+    // Subject Curriculum Catalog
+    match /subjects/{subjectId} {
+      allow read, write: if true;
+    }
+
+    // Class Timetable Allocations
+    match /timetable/{timetableId} {
+      allow read, write: if true;
+    }
+
+    // Fee Invoices & Financials
+    match /fees/{feeId} {
+      allow read, write: if true;
+    }
+
+    // Payment Receipts
+    match /receipts/{receiptId} {
+      allow read, write: if true;
+    }
+
+    // Academic Calendar Events & Notices
+    match /events/{eventId} {
+      allow read, write: if true;
+    }
+
+    // Broadcasts & Internal Messages
+    match /messages/{messageId} {
+      allow read, write: if true;
+    }
+
+    // Gradebook & Exam Marks
+    match /gradebook/{gradebookId} {
+      allow read, write: if true;
+    }
+    match /gradebooks/{gradebookId} {
+      allow read, write: if true;
+    }
+
+    // Daily Attendance
+    match /attendance/{attendanceId} {
+      allow read, write: if true;
+    }
+
+    // Termly Report Card Remarks
+    match /termlyReports/{reportId} {
+      allow read, write: if true;
+    }
+
+    // Results Approval Workflow
+    match /resultsApprovals/{approvalId} {
+      allow read, write: if true;
+    }
+
+    // Discipline & Conduct Records
+    match /discipline/{recordId} {
+      allow read, write: if true;
+    }
+
+    // Asset Inventory
+    match /inventory/{itemId} {
+      allow read, write: if true;
+    }
+
+    // Library & Circulation
+    match /library/{bookId} {
+      allow read, write: if true;
+    }
+    match /libraryCheckouts/{checkoutId} {
+      allow read, write: if true;
+    }
+
+    // Boarding & Hostel
+    match /hostelDorms/{dormId} {
+      allow read, write: if true;
+    }
+    match /hostelAllocations/{allocId} {
+      allow read, write: if true;
+    }
+
+    // Transport & Routes
+    match /transportVehicles/{vehicleId} {
+      allow read, write: if true;
+    }
+    match /transportPupils/{pupilId} {
+      allow read, write: if true;
+    }
+    match /transportRoutes/{routeId} {
+      allow read, write: if true;
+    }
+
+    // Homework Assignments
+    match /homework/{taskId} {
+      allow read, write: if true;
+    }
+
+    // Exam Timetables
+    match /exams/{examId} {
+      allow read, write: if true;
+    }
+
+    // Audit Logs
+    match /auditLogs/{logId} {
+      allow read, write: if true;
+    }
+
+    // Full School Snapshot Synchronization
+    match /syncData/{syncId} {
+      allow read, write: if true;
+    }
+
+    // Admin & User Accounts
+    match /admins/{adminId} {
+      allow read, write: if true;
+    }
+    match /userAccounts/{accountId} {
+      allow read, write: if true;
+    }
+
+    // General fallback for all documents
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
+

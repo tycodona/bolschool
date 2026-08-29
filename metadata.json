@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Remix bread of life school 1///..",
+  "description": "Comprehensive school management platform for Zambian primary and secondary education featuring customizable secondary pathways, transport routes and fleet operations, ECZ-aligned grading, attendance, and administrative management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
